@@ -2,9 +2,10 @@
 (setq auto-save-default nil) ; stop creating #autosave#
 
 (require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ))
-(add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")))
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
 
 ;;; from purcell/emacs.d
 (defun require-package (package &optional min-version no-refresh)
@@ -39,7 +40,7 @@ re-downloaded in order to locate PACKAGE."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (color-theme afternoon-theme dash origami highlight evil))))
+    (math-symbols matlab-mode color-theme afternoon-theme dash origami highlight evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -48,3 +49,10 @@ re-downloaded in order to locate PACKAGE."
  )
 
 ;(load-theme 'afternoon t)
+
+ (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+ (add-to-list
+  'auto-mode-alist
+  '("\\.m$" . matlab-mode))
+ (setq matlab-indent-function t)
+ (setq matlab-shell-command "matlab")
