@@ -32,16 +32,20 @@ let skip_defaults_vim=1
 
 set number
 
-"inoremap ' ''<ESC>i
-"inoremap " ""<ESC>i
-"inoremap ( ()<ESC>i
-"inoremap [ []<ESC>i
-"inoremap { {}<ESC>i
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
 
-set mouse=a  //allow mouse
+set mouse=a  
 set foldmethod=indent
 " Keep all folds open when a file is opened
 augroup OpenAllFoldsOnFileOpen
     autocmd!
     autocmd BufRead * normal zR
 augroup END
+
+" Tab completion
+set wildmode=longest,list,full
+set wildmenu

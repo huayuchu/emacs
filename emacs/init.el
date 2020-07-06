@@ -38,6 +38,7 @@ re-downloaded in order to locate PACKAGE."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
     (math-symbols matlab-mode color-theme afternoon-theme dash origami highlight evil))))
@@ -56,3 +57,17 @@ re-downloaded in order to locate PACKAGE."
   '("\\.m$" . matlab-mode))
  (setq matlab-indent-function t)
  (setq matlab-shell-command "matlab")
+
+;; add electric-pair-mode
+(electric-pair-mode 1)
+
+;; show lines
+(global-linum-mode t)
+
+;; bracket matching
+(show-paren-mode 1)
+
+;;(tool-bar-mode 0)
+
+;;(add-to-list 'default-frame-alist '(height . 24))
+;;(add-to-list 'default-frame-alist '(width . 80))
